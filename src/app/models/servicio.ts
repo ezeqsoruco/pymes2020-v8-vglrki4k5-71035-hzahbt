@@ -1,6 +1,6 @@
 export class Servicio {
-  idServicio: number;
-  descripcion: string;
-  importe: number;
-  cantidadHoras: number;
+  IdServicio: number;
+  Descripcion: string;
+  Importe: number;
+  CantidadHoras: number;
 }

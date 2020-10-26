@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ServiciosService } from "../../services/servicios.service";
+import { Servicio } from "../../models/servicio";
 
 @Component({
   selector: "app-servicios",
@@ -12,8 +14,16 @@ export class ServiciosComponent implements OnInit {
     L: "(Listado)"
   };
 
+  Items: Servicio[]=[];
+
   AccionABMC = "L";
-  constructor() {}
+  constructor(private serviciosService: ServiciosService) {}
 
   ngOnInit() {}
+
+  GetServicios() {
+    this.serviciosService.get().subscribe((res: Servicio[]) => {
+      this.Items = res;
+    });
+  }
 }
