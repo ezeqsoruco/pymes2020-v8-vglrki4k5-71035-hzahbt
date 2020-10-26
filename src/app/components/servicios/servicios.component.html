@@ -35,21 +35,21 @@
 	<fieldset [disabled]="AccionABMC==='C'">
 		<!--campo nombre-->
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre">Nombre <span
-                    class="text-danger">*</span></label>
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Descripcion">Descripción <span class="text-danger">*</span>
+      </label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" formControlName="Nombre"
-         [ngClass]="{'is-invalid': (FormReg.controls.Nombre.touched || submitted)  
-            && FormReg.controls.Nombre.errors}" />
+				<input type="text" class="form-control" formControlName="Descripcion"
+         [ngClass]="{'is-invalid': (FormReg.controls.Descripcion.touched || submitted)  
+            && FormReg.controls.Descripcion.errors}" />
 
-				<span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
-                        && FormReg.controls.Nombre.errors?.required">
+				<span class="text-danger" *ngIf="(FormReg.controls.Descripcion.touched || submitted) 
+                        && FormReg.controls.Descripcion.errors?.required">
                     Dato requerido.
-                </span>
-				<span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
-                       && (FormReg.controls.Nombre.errors?.minlength || FormReg.controls.Nombre.errors?.maxlength) ">
+        </span>
+				<span class="text-danger" *ngIf="(FormReg.controls.Descripcion.touched || submitted) 
+                       && (FormReg.controls.Descripcion.errors?.minlength || FormReg.controls.Descripcion.errors?.maxlength) ">
                     Dato texto, 4 a 55 caracteres.
-                </span>
+        </span>
 
 			</div>
 		</div>
@@ -170,13 +170,13 @@
 
 	<!-- Botones Grabar, Cancelar/Volver' -->
 	<div class="row justify-content-center">
-		<button type="button" *ngIf="AccionABMC!=='C'" class="btn btn-primary" (click)="Grabar()">
+		<button type="button" *ngIf="AccionABMC=='A'" class="btn btn-primary" (click)="Grabar()">
             <span class="fas fa-check"></span> Grabar
-        </button>
+    </button>
 		&nbsp;
 		<button type="button" class="btn btn-warning" (click)="Volver()">
-            <span class="fas fa-undo"></span> {{AccionABMC=='C' ? 'Volver' : 'Cancelar'}}
-        </button>
+            <span class="fas fa-undo"></span> {{AccionABMC=='L' ? 'Volver' : 'Cancelar'}}
+    </button>
 	</div>
 
 	<!--texto: Revisar los datos ingresados...-->
