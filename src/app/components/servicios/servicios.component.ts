@@ -14,12 +14,14 @@ export class ServiciosComponent implements OnInit {
     L: "(Listado)"
   };
 
-  Items: Servicio[]=[];
+  Items: Servicio[] = [];
 
   AccionABMC = "L";
   constructor(private serviciosService: ServiciosService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.GetServicios();
+  }
 
   GetServicios() {
     this.serviciosService.get().subscribe((res: Servicio[]) => {
