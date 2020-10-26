@@ -28,4 +28,8 @@ export class ServiciosComponent implements OnInit {
       this.Items = res;
     });
   }
+
+  Agregar() {
+    this.AccionABMC = "A";
+  }
 }

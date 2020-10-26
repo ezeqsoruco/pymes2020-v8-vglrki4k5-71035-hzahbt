@@ -1,7 +1,7 @@
 <h3>{{Titulo}} <small>{{TituloAccionABMC[AccionABMC]}}</small></h3>
 
 <!-- Tabla de resutados de busqueda y Paginador-->
-<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Lista?.length > 0">
+<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Items.Lista?.length > 0">
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
@@ -12,43 +12,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let item of Item.Lista">
+			<tr *ngFor="let item of Items.Lista">
 				<td>{{item.idservicio}}</td>
 				<td class="text-right">{{item.descripcion}}</td>
 				<td class="text-right">{{item.importe | currency:'$'}}</td>
 				<td>{{item.cantidadhoras}}</td>
-				<td class="text-center text-nowrap">
-					<button type="button" class="btn btn-sm btn-outline-primary" title="Ver" (click)="Consultar(dto)">
-                    <span class="fas fa-eye"></span>
-                </button>
-					<button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(dto)">
-                    <span class="fas fa-pencil-alt"></span>
-                </button>
-					<button type="button" class="btn btn-sm btn-outline-{{ dto.Activo ? 'danger':'success'}}"
-                    title="{{dto.Activo ? 'Desactivar':'Activar'}}" (click)="ActivarDesactivar(dto)">
-                    <span class="fas fa-{{dto.Activo ? 'times':'check'}}"></span>
-                </button>
-				</td>
 			</tr>
 		</tbody>
 	</table>
-	<!-- Paginador-->
-	<div id="divPaginador" class="col-sm-12">
-		<div class="row bg-light">
-			<div class="col-sm-3">
-				<span class="label label-default font-weight-bold">Registros: {{RegistrosTotal}}</span>
-			</div>
-			<div class="col-sm-6 text-center">
-				<ngb-pagination [(page)]="Pagina" (pageChange)="Buscar()" [pageSize]="10" [maxSize]="10"
-					[collectionSize]="RegistrosTotal"></ngb-pagination>
-			</div>
-			<div class="col-sm-3 text-right">
-				<button type="button" class="btn btn-primary" (click)="ImprimirListado()"><span class="fas fa-print"></span>
-                    Imprimir</button>
-			</div>
-		</div>
+	<div class="row justify-content-center">
+		<button type="button" class="btn btn-primary" (click)="Agregar()">
+            <span class="fas fa-plus"> </span> 
+            Agregar
+    </button>
 	</div>
 </div>
+
 
 <!-- Registro en Alta,Modificacion y Consulta -->
 <form id="FormReg" [formGroup]='FormReg' *ngIf="AccionABMC != 'L'" class="bg-light">
