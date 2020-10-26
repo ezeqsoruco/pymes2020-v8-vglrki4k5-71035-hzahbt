@@ -33,12 +33,12 @@ export class ServiciosComponent implements OnInit {
     this.GetServicios();
     this.FormReg = this.formBuilder.group({
       idservicio: [0],
-      Descripcion: [
+      descripcion: [
         "",
         [Validators.required, Validators.minLength(4), Validators.maxLength(55)]
       ],
-      Importe: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
-      CantidadHoras: [
+      importe: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
+      cantidadhoras: [
         null,
         [Validators.required, Validators.pattern("[0-9]{1,7}")]
       ]

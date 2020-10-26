@@ -35,19 +35,19 @@
 	<fieldset [disabled]="AccionABMC==='C'">
 		<!--campo nombre-->
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Descripcion">Descripción <span class="text-danger">*</span>
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="descripcion">Descripción <span class="text-danger">*</span>
       </label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" formControlName="Descripcion"
-         [ngClass]="{'is-invalid': (FormReg.controls.Descripcion.touched || submitted)  
-            && FormReg.controls.Descripcion.errors}" />
+				<input type="text" class="form-control" formControlName="descripcion"
+         [ngClass]="{'is-invalid': (FormReg.controls.descripcion.touched || submitted)  
+            && FormReg.controls.descripcion.errors}" />
 
-				<span class="text-danger" *ngIf="(FormReg.controls.Descripcion.touched || submitted) 
-                        && FormReg.controls.Descripcion.errors?.required">
+				<span class="text-danger" *ngIf="(FormReg.controls.descripcion.touched || submitted) 
+                        && FormReg.controls.descripcion.errors?.required">
                     Dato requerido.
         </span>
-				<span class="text-danger" *ngIf="(FormReg.controls.Descripcion.touched || submitted) 
-                       && (FormReg.controls.Descripcion.errors?.minlength || FormReg.controls.Descripcion.errors?.maxlength) ">
+				<span class="text-danger" *ngIf="(FormReg.controls.descripcion.touched || submitted) 
+                       && (FormReg.controls.descripcion.errors?.minlength || FormReg.controls.descripcion.errors?.maxlength) ">
                     Dato texto, 4 a 55 caracteres.
         </span>
 
@@ -56,18 +56,18 @@
 
 		<!--campo importe-->
 		<div class="row form-group">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Importe">Importe <span
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="importe">Importe <span
                     class="text-danger">*</span></label>
 			<div class="col-sm-6">
-				<input type="text" name="Importe" class="form-control" formControlName="Importe"
-            [ngClass]="{'is-invalid': (FormReg.controls.Importe.touched || submitted)  
-            && FormReg.controls.Importe.errors}" />
-				<span class="text-danger" *ngIf="(FormReg.controls.Importe.touched || submitted) 
-                       && FormReg.controls.Importe.errors?.required">
+				<input type="text" name="importe" class="form-control" formControlName="importe"
+            [ngClass]="{'is-invalid': (FormReg.controls.importe.touched || submitted)  
+            && FormReg.controls.importe.errors}" />
+				<span class="text-danger" *ngIf="(FormReg.controls.importe.touched || submitted) 
+                       && FormReg.controls.importe.errors?.required">
                     Dato requerido.
                 </span>
-				<span class="text-danger" *ngIf="(FormReg.controls.Importe.touched || submitted) 
-               && FormReg.controls.Importe.errors?.pattern">
+				<span class="text-danger" *ngIf="(FormReg.controls.importe.touched || submitted) 
+               && FormReg.controls.importe.errors?.pattern">
                     Dato numérico, 1 a 7 dígitos.
                 </span>
 			</div>
@@ -76,19 +76,19 @@
 
 		<!--campo cantidad de horas-->
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="CantidadHoras">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="cantidadhoras">
                 Cantidad de horas <span class="text-danger">*</span>
             </label>
 			<div class="col-sm-6">
-				<input type="text" name="CantidadHoras" class="form-control" formControlName="CantidadHoras"
-        [ngClass]="{'is-invalid': (FormReg.controls.CantidadHoras.touched || submitted)  
-            && FormReg.controls.CantidadHoras.errors}" />
-				<span class="text-danger" *ngIf="(FormReg.controls.CantidadHoras.touched || submitted) 
-                        && FormReg.controls.CantidadHoras.errors?.required">
+				<input type="text" name="cantidadhoras" class="form-control" formControlName="cantidadhoras"
+        [ngClass]="{'is-invalid': (FormReg.controls.cantidadhoras.touched || submitted)  
+            && FormReg.controls.cantidadhoras.errors}" />
+				<span class="text-danger" *ngIf="(FormReg.controls.cantidadhoras.touched || submitted) 
+                        && FormReg.controls.cantidadhoras.errors?.required">
                     Dato requerido.
                 </span>
-				<span class="text-danger" *ngIf="(FormReg.controls.CantidadHoras.touched || submitted) 
-                        && FormReg.controls.CantidadHoras.errors?.pattern">
+				<span class="text-danger" *ngIf="(FormReg.controls.cantidadhoras.touched || submitted) 
+                        && FormReg.controls.cantidadhoras.errors?.pattern">
                     Dato numérico, 1 a 7 dígitos.
                 </span>
 			</div>
