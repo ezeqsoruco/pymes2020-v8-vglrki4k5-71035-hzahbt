@@ -19,6 +19,7 @@ import { InicioComponent } from "./components/inicio/inicio.component";
 import { ArticulosComponent } from "./components/articulos/articulos.component";
 import { ArticulosFamiliasComponent } from "./components/articulos-familias/articulos-familias.component";
 import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.component";
+import { ServiciosComponent } from './components/servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
     InicioComponent,
     ArticulosComponent,
     ArticulosFamiliasComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,
