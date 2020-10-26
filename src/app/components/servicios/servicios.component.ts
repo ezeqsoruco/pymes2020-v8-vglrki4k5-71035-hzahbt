@@ -70,12 +70,12 @@ export class ServiciosComponent implements OnInit {
       return;
     }
 
-    //hacemos una copia de los datos del formulario y luego enviarlo al servidor
+    //hacemos una copia de los datos del formulario para luego enviarlo al servidor
     const itemCopy = { ...this.FormReg.value };
 
     // agregar post
     if (itemCopy.idservicio == 0 || itemCopy.idservicio == null) {
-      itemCopy.IdArticulo = 0;
+      itemCopy.idservicio = 0;
       this.serviciosService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         this.modalDialogService.Alert("Registro agregado correctamente.");
