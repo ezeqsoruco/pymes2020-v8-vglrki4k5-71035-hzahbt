@@ -7,11 +7,13 @@ import {
 } from "@angular/common/http";
 import { of } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ServiciosService {
   resourceUrl: string;
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl = "http://pavii.duckdns.org/api/servicios";
+    this.resourceUrl = "https://bitgocba.duckdns.org/api/servicios";
   }
 
   get() {
