@@ -22,6 +22,6 @@ export class ServiciosService {
   }
 
   post(obj: Servicio) {
-    return this.httpClient.put(this.resourceUrl, obj);
+    return this.httpClient.post(this.resourceUrl, obj);
   }
 }

@@ -3,6 +3,7 @@ import { ServiciosService } from "../../services/servicios.service";
 import { Servicio } from "../../models/servicio";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
+import { error } from "@angular/compiler/src/util";
 
 @Component({
   selector: "app-servicios",
@@ -73,13 +74,23 @@ export class ServiciosComponent implements OnInit {
     //hacemos una copia de los datos del formulario para luego enviarlo al servidor
     const itemCopy = { ...this.FormReg.value };
 
+    console.log(itemCopy);
+
     // agregar post
     if (itemCopy.idservicio == 0 || itemCopy.idservicio == null) {
       itemCopy.idservicio = 0;
-      this.serviciosService.post(itemCopy).subscribe((res: any) => {
-        this.Volver();
-        this.modalDialogService.Alert("Registro agregado correctamente.");
-      });
+      this.serviciosService.post(itemCopy).subscribe(
+        (res: any) => {
+          console.log();
+
+          this.Volver();
+          this.modalDialogService.Alert("Registro agregado correctamente.");
+          this.GetServicios();
+        },
+        err => {
+          this.modalDialogService.Alert("Error!!");
+        }
+      );
     }
   }
 }
