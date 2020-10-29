@@ -22,6 +22,7 @@ export class ClientesComponent implements OnInit {
   AccionABMC = "L";
   Clientes: Cliente[] = [];
   FormReg: FormGroup;
+  submitted: false;
 
   constructor(
     private clientesService: ClientesService,
@@ -45,7 +46,7 @@ export class ClientesComponent implements OnInit {
         null,
         [Validators.required, Validators.pattern("[0-9]{1,7}")]
       ],
-      TieneTrabajo: [null, [Validators.required]]
+      TieneTrabajo: ["", [Validators.required]]
     });
   }
 
@@ -56,6 +57,9 @@ export class ClientesComponent implements OnInit {
   }
 
   AgregarCliente() {
-    this.AccionABMC = "C";
+    this.AccionABMC = "A";
+    this.FormReg.reset();
+    this.submitted = false;
+    this.FormReg.markAsUntouched();
   }
 }
