@@ -61,7 +61,7 @@ export class ClientesComponent implements OnInit {
   }
 
   AgregarCliente() {
-
+                   
     this.AccionABMC = "A";
     this.FormReg.reset();
     this.submitted = false;
