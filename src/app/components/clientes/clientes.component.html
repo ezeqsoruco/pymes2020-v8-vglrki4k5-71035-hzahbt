@@ -1,7 +1,7 @@
 <h3>{{Titulo}} <small>{{TituloAccionABMC[AccionABMC]}}</small></h3>
 
 <!-- Tabla de resutados de busqueda y Paginador-->
-<div id="divTablaResultados"  *ngIf="AccionABMC == 'L' && Items.Lista?.length > 0">
+<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Clientes?.length > 0">
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -16,7 +16,7 @@
         <td>{{cte.IdCliente}}</td>
         <td class="text-right">{{cte.Nombre}}</td>
         <td class="text-right">{{cte.NumeroDocumento}}</td>
-        <td>{{cte.TieneTrabajo}}</td>
+        <td>{{cte.TieneTrabajo ? 'SI' : 'NO'}}</td>
       </tr>
     </tbody>
   </table>

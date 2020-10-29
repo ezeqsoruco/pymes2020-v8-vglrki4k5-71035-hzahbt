@@ -19,6 +19,8 @@ export class ClientesComponent implements OnInit {
 
   AccionABMC = "L";
   Clientes: Cliente[] = [];
+  RegistrosTotal: number;
+  Pagina = 1;
 
   constructor(
     private clientesService: ClientesService,
@@ -26,11 +28,16 @@ export class ClientesComponent implements OnInit {
     private modalDialogService: ModalDialogService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.GetClientes();
+  }
 
   GetClientes() {
     this.clientesService.get().subscribe((res: Cliente[]) => {
       this.Clientes = res;
+
     });
   }
+
+
 }
