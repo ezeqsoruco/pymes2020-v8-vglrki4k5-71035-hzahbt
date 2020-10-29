@@ -6,17 +6,17 @@
     <thead>
       <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">DESCRIPCION</th>
-        <th class="text-center">IMPORTE</th>
-        <th class="text-center">CANTIDAD HORAS</th>
+        <th class="text-center">NOMBRE</th>
+        <th class="text-center">DNI</th>
+        <th class="text-center">¿TRABAJA?</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of Items.Lista">
-        <td>{{item.idservicio}}</td>
-        <td class="text-right">{{item.descripcion}}</td>
-        <td class="text-right">{{item.importe | currency:'$'}}</td>
-        <td>{{item.cantidadhoras}}</td>
+      <tr *ngFor="let cte of Clientes">
+        <td>{{cte.IdCliente}}</td>
+        <td class="text-right">{{cte.Nombre}}</td>
+        <td class="text-right">{{cte.NumeroDocumento}}</td>
+        <td>{{cte.TieneTrabajo}}</td>
       </tr>
     </tbody>
   </table>

@@ -11,7 +11,7 @@ import { Servicio } from "../models/servicio";
 @Injectable({
   providedIn: "root"
 })
-@Injectable()
+
 export class ClientesService {
   resourceUrl: string;
 
