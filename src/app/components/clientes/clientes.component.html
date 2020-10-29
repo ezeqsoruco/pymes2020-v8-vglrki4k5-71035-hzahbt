@@ -72,7 +72,7 @@
       <label
         class="col-form-label col-sm-2 col-sm-offset-2"
         for="NumeroDocumento"
-        >Numero Documento: <span class="text-danger">*</span></label
+        >N° Documento: <span class="text-danger">*</span></label
       >
       <div class="col-sm-6">
         <input
@@ -100,7 +100,38 @@
       </div>
     </div>
 
- 
+    <!--campo TieneTrabajo-->
+    <div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="TieneTrabajo">
+                ¿Tiene Trabajo?: <span class="text-danger">*</span>
+      </label>
+			<div class="col-sm-6">
+				<select name="TieneTrabajo" class="form-control" formControlName="TieneTrabajo"
+        [ngClass]="{'is-invalid': (FormReg.controls.TieneTrabajo.touched || submitted)  
+            && FormReg.controls.TieneTrabajo.errors}" >
+                    <option *ngFor="let opt of Options" [ngValue]="opt.Id">
+                        ‌{{ opt.Nombre }}
+                    <option>
+                </select>
+				<span class="text-danger" *ngIf="(FormReg.controls.TieneTrabajo.touched || submitted) 
+                        && FormReg.controls.TieneTrabajo.errors?.required">
+                    Dato requerido.
+                </span>
+			</div>
+		</div>
+
+    <!-- Botones Grabar, Cancelar/Volver' -->
+	<div class="row justify-content-center">
+		<button type="button" *ngIf="AccionABMC=='A'" class="btn btn-primary" (click)="Grabar()">
+            <span class="fas fa-check"></span> Grabar
+    </button>
+		&nbsp;
+		<button type="button" class="btn btn-warning" (click)="Volver()">
+            <span class="fas fa-undo"></span> {{AccionABMC=='L' ? 'Volver' : 'Cancelar'}}
+    </button>
+	</div>
+
+  </fieldset>
 
   <!-- Botones Grabar, Cancelar/Volver' 
   <div class="row justify-content-center">
