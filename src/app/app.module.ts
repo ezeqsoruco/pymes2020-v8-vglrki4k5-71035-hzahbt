@@ -22,6 +22,7 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
 import { ServiciosComponent } from "./components/servicios/servicios.component";
 import { ServiciosService } from "./services/servicios.service";
 import { ClientesComponent } from "./components/clientes/clientes.component";
+import { ClientesService } from './services/clientes.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ClientesComponent } from "./components/clientes/clientes.component";
       provide: HTTP_INTERCEPTORS,
       useClass: MyInterceptor,
       multi: true,
-      providers: [ServiciosService]
+      providers: [ServiciosService],
+      providers: [ClientesService]
     }
   ],
   bootstrap: [AppComponent]

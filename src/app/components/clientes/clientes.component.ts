@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ServiciosService } from "../../services/servicios.service";
+import { ClientesService } from "../../services/clientes.service";
 import { Servicio } from "../../models/servicio";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
@@ -21,7 +21,7 @@ export class ClientesComponent implements OnInit {
   Clientes: Cliente[] = [];
 
   constructor(
-    private serviciosService: ServiciosService,
+    private clientesService: ClientesService,
     public formBuilder: FormBuilder,
     private modalDialogService: ModalDialogService
   ) {}
@@ -29,7 +29,7 @@ export class ClientesComponent implements OnInit {
   ngOnInit() {}
 
   GetClientes() {
-    this.serviciosService.get().subscribe((res: Cliente[]) => {
+    this.clientesService.get().subscribe((res: Cliente[]) => {
       this.Clientes = res;
     });
   }
