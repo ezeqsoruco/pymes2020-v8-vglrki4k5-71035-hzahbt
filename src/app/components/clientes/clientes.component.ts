@@ -17,7 +17,11 @@ export class ClientesComponent implements OnInit {
     L: "(Listado)"
   };
 
-  Options = ["Si", "No"];
+  Options = [
+    { Id: null, Nombre: "" },
+    { Id: true, Nombre: "SI" },
+    { Id: false, Nombre: "NO" }
+  ];
 
   AccionABMC = "L";
   Clientes: Cliente[] = [];
