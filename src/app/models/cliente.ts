@@ -1,7 +1,6 @@
 export class Cliente {
   IdCliente: number;
-  Nombre;
-  string;
+  Nombre: string;
   NumeroDocumento: number;
   TieneTrabajo: boolean;
 }
