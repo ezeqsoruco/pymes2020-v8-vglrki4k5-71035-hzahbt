@@ -21,9 +21,143 @@
     </tbody>
   </table>
   <div class="row justify-content-center">
-    <button type="button" class="btn btn-primary" (click)="Agregar()">
+    <button type="button" class="btn btn-primary" (click)="AgregarCliente()">
       <span class="fas fa-plus"> </span>
       Agregar
     </button>
   </div>
 </div>
+
+<!-- Registro en Alta,Modificacion y Consulta -->
+<form
+  id="FormReg"
+  [formGroup]="FormReg"
+  *ngIf="AccionABMC != 'L'"
+  class="bg-light"
+>
+  <fieldset [disabled]="AccionABMC==='C'">
+    <!--campo nombre-->
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre"
+        >Nombre: <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="Nombre"
+          [ngClass]="{'is-invalid': (FormReg.controls.Nombre.touched || submitted)  
+            && FormReg.controls.Nombre.errors}"
+        />
+
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+                        && FormReg.controls.Nombre.errors?.required"
+        >
+          Dato requerido.
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+                       && (FormReg.controls.Nombre.errors?.minlength || FormReg.controls.Nombre.errors?.maxlength) "
+        >
+          Dato texto, 4 a 100 caracteres.
+        </span>
+      </div>
+    </div>
+
+    <!--campo NumeroDocumento-->
+    <div class="row form-group">
+      <label class="col-form-label col-sm-2 col-sm-offset-2" for="NumeroDocumento"
+        >Numero Documento: <span class="text-danger">*</span></label
+      >
+      <div class="col-sm-6">
+        <input
+          type="text"
+          name="NumeroDocumento"
+          class="form-control"
+          formControlName="NumeroDocumento"
+          [ngClass]="{'is-invalid': (FormReg.controls.NumeroDocumento.touched || submitted)  
+            && FormReg.controls.NumeroDocumento.errors}"
+        />
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.NumeroDocumento.touched || submitted) 
+                       && FormReg.controls.NumeroDocumento.errors?.required"
+        >
+          Dato requerido.
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.NumeroDocumento.touched || submitted) 
+               && FormReg.controls.NumeroDocumento.errors?.pattern"
+        >
+          Dato numérico, 1 a 7 dígitos.
+        </span>
+      </div>
+    </div>
+
+    <!--campo TieneTrabajo-->
+    <div class="form-group row">
+      <label
+        class="col-form-label col-sm-2 col-sm-offset-2"
+        for="TieneTrabajo"
+      >
+        Tiene Trabajo?: <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <select ng-model="selectedName" *ngFor="let op of Options">
+        </select>
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.TieneTrabajo.touched || submitted) 
+                        && FormReg.controls.TieneTrabajo.errors?.required"
+        >
+          Dato requerido.
+        </span>
+        <!--<input
+          type="text"
+          name="TieneTrabajo"
+          class="form-control"
+          formControlName="TieneTrabajo"
+          [ngClass]="{'is-invalid': (FormReg.controls.TieneTrabajo.touched || submitted)  
+            && FormReg.controls.TieneTrabajo.errors}"
+        />
+        <span
+          class="text-danger"
+          *ngIf="(FormReg.controls.TieneTrabajo.touched || submitted) 
+                        && FormReg.controls.TieneTrabajo.errors?.required"
+        >
+          Dato requerido.
+        </span>-->
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Botones Grabar, Cancelar/Volver' 
+  <div class="row justify-content-center">
+    <button
+      type="button"
+      *ngIf="AccionABMC=='A'"
+      class="btn btn-primary"
+      (click)="Grabar()"
+    >
+      <span class="fas fa-check"></span> Grabar
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-warning" (click)="Volver()">
+      <span class="fas fa-undo"></span> {{AccionABMC=='L' ? 'Volver' :
+      'Cancelar'}}
+    </button>
+  </div>-->
+
+  <!--texto: Revisar los datos ingresados...
+  <div
+    id="divMsjFormRegistro"
+    *ngIf="submitted && FormReg.invalid"
+    class="row alert alert-danger"
+  >
+    <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
+  </div>-->
+</form>

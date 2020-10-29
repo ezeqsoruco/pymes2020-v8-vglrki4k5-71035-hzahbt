@@ -17,10 +17,11 @@ export class ClientesComponent implements OnInit {
     L: "(Listado)"
   };
 
+  Options = ["Si", "No"];
+
   AccionABMC = "L";
   Clientes: Cliente[] = [];
-  RegistrosTotal: number;
-  Pagina = 1;
+  FormReg: FormGroup;
 
   constructor(
     private clientesService: ClientesService,
@@ -30,14 +31,31 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit() {
     this.GetClientes();
+    this.FormReg = this.formBuilder.group({
+      IdCliente: [0],
+      Nombre: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(100)
+        ]
+      ],
+      NumeroDocumento: [
+        null,
+        [Validators.required, Validators.pattern("[0-9]{1,7}")]
+      ],
+      TieneTrabajo: [null, [Validators.required]]
+    });
   }
 
   GetClientes() {
     this.clientesService.get().subscribe((res: Cliente[]) => {
       this.Clientes = res;
-
     });
   }
 
-
+  AgregarCliente() {
+    this.AccionABMC = "C";
+  }
 }
