@@ -68,4 +68,8 @@ export class ClientesComponent implements OnInit {
     this.FormReg.markAsUntouched();
     window.scroll(0,0); //me retorna al principio de la pagina
   }
+
+  Volver(){
+    this.AccionABMC = "L";
+  }
 }
